@@ -37,7 +37,6 @@ export default {
           title:v.name,
           desc:'',
           status:`可信度：${parseInt(v.score*100)||'<1'}%`,
-          description:v.baike_info.description,
         }
         switch(type){
           case 'advancedGeneral':
@@ -51,6 +50,13 @@ export default {
             o.desc=`卡路里：${v.calorie}`
             o.status=`可信度：${parseInt(v.probability*100)||'<1'}%`
             break
+          case 'logoSearch':
+            o.desc=``
+            o.status=`可信度：${parseInt(v.probability*100)||'<1'}%`
+            break
+        }
+        if(v.baike_info){
+          o.description=v.baike_info.description
         }
         return o
       })

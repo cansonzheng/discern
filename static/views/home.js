@@ -1,32 +1,22 @@
 export default {
   template: `
     <div class="mainPadding">
-      <van-row gutter="20">
-        <van-col :span="v.span?v.span*8:8" v-for="(v,i) in navList" :key="i">
-          <uploader :text="v.text" :icon="v.icon" :type="v.type" @done="done"/>
-        </van-col>
-      </van-row>
+      <transition>
+        <div v-if="title" class="maintitle animated bounceInDown">图像物体识别</div>
+      </transition>
+      <transition>
+        <van-row gutter="20" v-if="menu.length" class="animated bounceInUp">
+          <van-col :span="v.span?v.span*8:8" v-for="(v,i) in menu" :key="i" :style="{margin:'10px 0'}" v-if="!v.disabled">
+            <uploader :text="v.text" :icon="v.icon" :type="v.type" @done="done"/>
+          </van-col>
+        </van-row>
+      </transition>
     </div>
   `,
   data() {
     return {
-      navList: [
-        {
-          text: "通用物体识别",
-          icon: "&#xe619;",
-          type: "advancedGeneral"
-        },
-        {
-          text: "车辆识别",
-          icon: "&#xe622;",
-          type: "carDetect"
-        },
-        {
-          text: "菜品识别",
-          icon: "&#xe601;",
-          type: "dishDetect"
-        }
-      ]
+      title:false,
+      menu: []
     };
   },
   methods: {
@@ -39,6 +29,14 @@ export default {
           data:v.data
         }
       })
+    },
+    async getmenu(){
+      let res=await axios.get('/menu.json')
+      this.menu=res.data
     }
+  },
+  created(){
+    this.title=true
+    this.getmenu()
   }
 }
