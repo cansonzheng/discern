@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 1254358 */
+  src: url('//at.alicdn.com/t/font_1254358_sg3hoikbe0i.eot');
+  src: url('//at.alicdn.com/t/font_1254358_sg3hoikbe0i.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1254358_sg3hoikbe0i.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1254358_sg3hoikbe0i.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1254358_sg3hoikbe0i.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1254358_sg3hoikbe0i.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family: 'iconfont';
+  font-style: normal;
+  font-weight: normal;
+}
+
+body{
+  background: #f0f3f6;
+}
+.mainPadding{
+  padding: 15px;
+}
+
+.panel {
+  margin: 15px 0;
+  &:first-child
+  ,&:last-child{
+    margin-top:0;
+    margin-bottom:0;
+  }
+  .description {
+    padding: 15px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+
+.uploader {
+  background: #fff;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .iconfont {
+    font-size: 50px;
+  }
+  .text {
+    font-size: 14px;
+    color: #001938;
+  }
+  .van-uploader__preview {
+    margin: 0 !important;
+  }
+}
