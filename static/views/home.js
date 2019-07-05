@@ -2,7 +2,7 @@ export default {
   template: `
     <div class="mainPadding">
       <transition>
-        <div v-if="title" class="maintitle animated bounceInDown">图像物体识别</div>
+        <div v-if="title" class="maintitle animated bounceInDown">AI物体识别</div>
       </transition>
       <transition>
         <van-row gutter="20" v-if="menu.length" class="animated bounceInUp">
