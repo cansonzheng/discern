@@ -46,8 +46,11 @@ Vue.component('uploader', {
             image: base64,
           })
           .then(res => {
-            this.$toast.clear()
-            if(res.data.err) return this.$toast("识别失败");
+            if(res.data.err) {
+              this.$toast.clear()
+              this.$toast("识别失败");
+              return;
+            }
             if (res.data.error_code) {
               this.$toast(res.data.error_msg);
             } else {
@@ -57,6 +60,7 @@ Vue.component('uploader', {
                 data:res.data,
               });
             }
+            this.$toast.clear()
           })
           .catch(e => {
             this.$toast.clear();
