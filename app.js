@@ -17,4 +17,4 @@ router.use('/api', api.routes(), api.allowedMethods())
 app.use(router.routes())
 .use(router.allowedMethods())
 
-app.listen(3210)
+app.listen(process.env.TENCENTCLOUD_SERVER_PORT||3210)
