@@ -1,4 +1,4 @@
-Vue.component('uploader', {
+export default {
   props: ["icon", "text", "type"],
   data() {
     return {
@@ -90,4 +90,4 @@ Vue.component('uploader', {
       </van-uploader>
     </div>
   `
-})
+}

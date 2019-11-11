@@ -1,3 +1,4 @@
+import uploader from '../components/uploader.js'
 export default {
   template: `
     <div class="mainPadding">
@@ -13,6 +14,9 @@ export default {
       </transition>
     </div>
   `,
+  components:{
+    uploader
+  },
   data() {
     return {
       title:false,
